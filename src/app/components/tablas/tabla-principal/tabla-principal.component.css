@@ -1,0 +1,35 @@
+.table-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+.table-container table th {
+  background-color: #6C79E0;
+  color: white;
+  padding: 10px; 
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+
+.table-container table td {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px; 
+  font-family: 'Inter', sans-serif;
+
+}
+
+
+.table-container table tr:hover td {
+  background-color: #EDECFF;
+}
+
+
+.table-container table {
+  border-collapse: collapse;
+  width: 500px; 
+}

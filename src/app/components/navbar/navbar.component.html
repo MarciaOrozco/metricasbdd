@@ -1,0 +1,26 @@
+<div class="horizontal-navbar" *ngIf="isLoggedIn$ | async">
+  <div class="logo-container item-title" routerLink="/home">
+      LOGOOO
+  </div>
+  <div class="user-container item-title">
+   USERRR
+  </div>
+</div>
+
+<div class="container" *ngIf="isLoggedIn$ | async"> 
+  <div class="item">
+    <p class="item-title" routerLink="/proyectos">Proyectos</p>
+  </div>
+  <div class="item">
+    <p class="item-title" routerLink="/equipos">Equipos</p>
+  </div>
+  <div class="item">
+    <p class="item-title" routerLink="/sprints">Sprints</p>
+  </div>
+  <div class="item">
+    <p class="item-title" routerLink="/objetivos"> Objetivos</p>
+  </div>
+  <div class="item">
+    <p class="item-title" routerLink="/login" (click)="onLogout()">Salir</p>
+  </div>
+</div>
