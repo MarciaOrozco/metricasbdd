@@ -13,7 +13,7 @@ export class AuthService {
   }
   
   login(email: string, password: string): boolean {
-    if (email === 'test' && password === 'test') {
+    if (email === 't' && password === 't') {
       this.loggedIn.next(true);
       return true;
     }

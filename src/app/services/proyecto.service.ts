@@ -8,7 +8,9 @@ import { environment } from '../../environments/environment';
 })
 
 export class ProyectoService {
+
   private hostUrl = environment.apiUrl;
+  
   constructor(private http: HttpClient) { }
 
   public getProyectos(): Observable<any> {

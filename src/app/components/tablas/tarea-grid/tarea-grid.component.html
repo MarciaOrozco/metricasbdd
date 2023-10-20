@@ -1,0 +1,25 @@
+<div class="table-container">
+    <table>
+      <tr>
+        <th>Tarea ID</th>
+        <th>Numeor de sprint</th>
+        <th>Empleado</th>
+        <th>Puntos</th>
+        <th>Estado</th>
+        <th>Descripcion</th>
+        <th>Fecha inicio</th>
+        <th>Fecha fin</th>
+      </tr>
+      <tr *ngFor="let tarea of tareas">
+        <td>{{ tarea.tareaID }}</td>
+        <td>{{ tarea.sprint.numeroSprint }}</td>
+        <td>{{ tarea.empleado.nombre + " " + tarea.empleado.apellido }}</td>
+        <td>{{ tarea.puntos }}</td>
+        <td>{{ tarea.estado }}</td>
+        <td>{{ tarea.descripcion }}</td>
+        <td>{{ tarea.fechaInicio | date:'dd/MM/yyyy' }}</td>
+        <td>{{ tarea.fechaFin | date:'dd/MM/yyyy'}}</td>
+      </tr>
+    </table>
+  </div>
+  

@@ -10,14 +10,18 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 
 export class ProyectoGridComponent implements OnInit {
 
-  data: any[] = [];
+  public proyectos: any[] = [];
+
   constructor(private proyectoService: ProyectoService) { }
 
   ngOnInit(): void {
-    this.proyectoService.getProyectos().subscribe(res => {
-      if(res){
-        this.data = res;
-        console.log(res)
+    this.getProyectos();
+  }
+
+  public getProyectos(){
+    this.proyectoService.getProyectos().subscribe(data => {
+      if(data){
+        this.proyectos = data;
       }
     });
   }

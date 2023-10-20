@@ -1,1 +1,15 @@
-<p>equipo-grid works!</p>
+<div class="table-container">
+    <table>
+      <tr>
+        <th>Nombre del equipo</th>
+        <th>Proyecto</th>
+        <th>Objetivos</th>
+      </tr>
+      <tr *ngFor="let equipo of equipos">
+        <td>{{ equipo.nombreEquipo }}</td>
+        <td>{{ equipo.proyecto.nombreProyecto }}</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  

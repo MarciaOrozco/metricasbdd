@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SprintService } from 'src/app/services/sprint.service';
 
 @Component({
   selector: 'app-sprint-grid',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SprintGridComponent implements OnInit {
 
-  constructor() { }
+  public sprints: any[] = [];
+
+  constructor(private sprintsService: SprintService) { }
 
   ngOnInit(): void {
+    this.getSprints();
+  }
+
+  public getSprints(){
+    this.sprintsService.getSprints().subscribe(data => {
+      if(data){
+        this.sprints = data;
+      }
+    });
   }
 
 }
