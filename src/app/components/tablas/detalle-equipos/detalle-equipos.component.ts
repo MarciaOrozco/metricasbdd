@@ -21,18 +21,15 @@ export class DetalleEquiposComponent implements OnInit {
 
   public getEquipo() {
     this.route.paramMap.subscribe(params => {
-      const proyectoId = params.get('proyectoId');
-  
+      const proyectoId = params.get('ProyectoID');
       if (proyectoId !== null) {
         this.equiposService.getEquipos().subscribe(equipos => {
           let filteredEquipos : any = [];
-  
           equipos.forEach((equipo: any) => {
-            if (equipo.proyecto.proyectoId.toString() === proyectoId) {
+            if (equipo.ProyectoID == proyectoId) {
               filteredEquipos.push(equipo);
             }
           });
-  
           this.equipos = filteredEquipos;
         });
       }

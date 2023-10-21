@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoService } from 'src/app/services/proyecto.service';
+import { TareaService } from 'src/app/services/tarea.service';
 
 
 @Component({
@@ -19,10 +20,9 @@ export class ProyectoGridComponent implements OnInit {
   }
 
   public getProyectos(){
-    this.proyectoService.getProyectos().subscribe(data => {
-      if(data){
-        this.proyectos = data;
-      }
+    this.proyectoService.getPuntosPorProyecto().subscribe((data: any) => {
+      this.proyectos = data
+      console.log(data)
     });
   }
 }

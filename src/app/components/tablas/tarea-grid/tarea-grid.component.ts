@@ -22,4 +22,5 @@ export class TareaGridComponent implements OnInit {
         this.tareas = data;
       }
     });
-  }}
+  }
+}

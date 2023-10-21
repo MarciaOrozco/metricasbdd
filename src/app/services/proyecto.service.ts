@@ -16,4 +16,8 @@ export class ProyectoService {
   public getProyectos(): Observable<any> {
     return this.http.get<any>(this.hostUrl + `/proyectos`);
   }
+
+  public getPuntosPorProyecto() {
+    return this.http.get(`${this.hostUrl}/puntosPorProyecto`);
+  }
 }

@@ -23,7 +23,7 @@ const routes: Routes = [
   component: EquipoGridComponent,
   canActivate: [AuthGuard],
 },
-{ path: 'equipo/:proyectoId',
+{ path: 'equipo/:ProyectoID',
  component: DetalleEquiposComponent ,
  canActivate: [AuthGuard],
 },

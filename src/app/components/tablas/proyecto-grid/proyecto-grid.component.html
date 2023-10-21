@@ -5,8 +5,8 @@
         <th>Objetivos</th>
       </tr>
       <tr *ngFor="let proyecto of proyectos">
-        <td [routerLink]="['/equipo', proyecto.proyectoId]">{{ proyecto.NombreProyecto }}</td>
-        <td>Cumple objetivo</td>
+        <td [routerLink]="['/equipo', proyecto.ProyectoID]">{{ proyecto.NombreProyecto }}</td>
+        <td> {{ proyecto.TotalPuntos }} </td>
       </tr>
     </table>
   </div>
