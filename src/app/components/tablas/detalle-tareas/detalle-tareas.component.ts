@@ -27,12 +27,8 @@ export class DetalleTareasComponent implements OnInit {
       if (sprintId !== null) {
         this.tareasService.getTareas().subscribe(tareas => {
           let filteredTareas : any = [];  
-
-          console.log(tareas)
-          console.log(sprintId)
           tareas.forEach((tarea: any) => {
             if (tarea.SprintID.toString() == sprintId) {
-              console.log(tarea.SprintID)
               filteredTareas.push(tarea);
             }
           });

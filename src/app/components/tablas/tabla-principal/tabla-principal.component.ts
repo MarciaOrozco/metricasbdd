@@ -15,7 +15,6 @@ export class TablaPrincipalComponent implements OnInit {
     this.proyectoService.getProyectos().subscribe(res => {
       if(res){
         this.data = res;
-        console.log(res)
       }
     });
   }

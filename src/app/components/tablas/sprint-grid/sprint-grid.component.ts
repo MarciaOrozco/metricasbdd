@@ -11,9 +11,9 @@ import { TareaService } from 'src/app/services/tarea.service';
 export class SprintGridComponent implements OnInit {
 
   public sprints: any[] = [];
+  public helpersprints: any;
 
-  constructor(private sprintsService: SprintService,
-    private tareasService : TareaService
+  constructor(private sprintsService: SprintService
     ) { }
 
     ngOnInit(): void {
@@ -24,8 +24,28 @@ export class SprintGridComponent implements OnInit {
     this.sprintsService.getSprints().subscribe(data => {
       if(data){
         this.sprints = data;
-        console.log(this.sprints)
+        this.updateSprintWithPoints()
       }
     });
+  }
+
+  private updateSprintWithPoints() {
+    this.sprintsService.getPuntosPorSprint().subscribe(x => {
+      this.helpersprints = x;
+      if (this.sprints && this.helpersprints) {
+        const puntosMap = new Map<number, number>();
+        this.helpersprints.forEach((sprint: any) => {
+          puntosMap.set(sprint.SprintID, sprint.TotalPuntos);
+        });
+  
+        this.sprints.forEach((sprint: any) => {
+          const puntos = puntosMap.get(sprint.SprintID);
+          if (puntos !== undefined) {
+            sprint.TotalPuntos = puntos;
+          }
+        });
+      }
+    })
+    
   }
 }

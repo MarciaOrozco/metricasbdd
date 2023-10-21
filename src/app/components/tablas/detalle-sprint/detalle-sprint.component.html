@@ -12,7 +12,7 @@
         <td>{{ sprint.NombreEquipo }}</td>
         <td>{{ sprint.FechaInicio | date:'dd/MM/yyyy' }}</td>
         <td>{{ sprint.FechaFin | date:'dd/MM/yyyy'}}</td>
-        <td [routerLink]="['/tareas', sprint.SprintID]" ></td>
+        <td [routerLink]="['/tareas', sprint.SprintID]" >{{sprint.TotalPuntos}}</td>
       </tr>
     </table>
   </div>

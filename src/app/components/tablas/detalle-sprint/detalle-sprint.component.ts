@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SprintService } from 'src/app/services/sprint.service';
-import { TareaService } from 'src/app/services/tarea.service';
 
 @Component({
   selector: 'app-detalle-sprint',
@@ -11,6 +10,7 @@ import { TareaService } from 'src/app/services/tarea.service';
 export class DetalleSprintComponent implements OnInit {
 
   public sprints: any[] = [];
+  public helpersprints: any;
 
   constructor(private sprintService: SprintService,
     private route: ActivatedRoute
@@ -37,11 +37,29 @@ export class DetalleSprintComponent implements OnInit {
           });
   
           this.sprints = filteredSprints;
+          this.updateSprintWithPoints();
         });
       }
     });
   }
 
-
-
+  private updateSprintWithPoints() {
+    this.sprintService.getPuntosPorSprint().subscribe(x => {
+      this.helpersprints = x;
+      if (this.sprints && this.helpersprints) {
+        const puntosMap = new Map<number, number>();
+        this.helpersprints.forEach((sprint: any) => {
+          puntosMap.set(sprint.SprintID, sprint.TotalPuntos);
+        });
+  
+        this.sprints.forEach((sprint: any) => {
+          const puntos = puntosMap.get(sprint.SprintID);
+          if (puntos !== undefined) {
+            sprint.TotalPuntos = puntos;
+          }
+        });
+      }
+    })
+    
+  }
 }
