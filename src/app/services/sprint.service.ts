@@ -16,4 +16,8 @@ export class SprintService {
   public getSprints(): Observable<any> {
     return this.http.get<any>(this.hostUrl + `/sprints`);
   }
+
+  public getPuntosPorProyecto() {
+    return this.http.get(`${this.hostUrl}/puntosPorSprint`);
+  }
 }

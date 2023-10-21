@@ -22,14 +22,17 @@ export class DetalleTareasComponent implements OnInit {
   public getTareas() {
     this.route.paramMap.subscribe(params => {
       
-      const sprintId = params.get('sprintId');
+      const sprintId = params.get('SprintID');
 
       if (sprintId !== null) {
         this.tareasService.getTareas().subscribe(tareas => {
           let filteredTareas : any = [];  
 
+          console.log(tareas)
+          console.log(sprintId)
           tareas.forEach((tarea: any) => {
-            if (tarea.sprint.sprintId.toString() === sprintId) {
+            if (tarea.SprintID.toString() == sprintId) {
+              console.log(tarea.SprintID)
               filteredTareas.push(tarea);
             }
           });

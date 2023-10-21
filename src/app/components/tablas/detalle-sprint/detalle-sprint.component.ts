@@ -13,8 +13,7 @@ export class DetalleSprintComponent implements OnInit {
   public sprints: any[] = [];
 
   constructor(private sprintService: SprintService,
-    private route: ActivatedRoute,
-    private tareasService: TareaService
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
@@ -25,14 +24,14 @@ export class DetalleSprintComponent implements OnInit {
   public getSprint() {
     this.route.paramMap.subscribe(params => {
       
-      const equipoId = params.get('equipoId');
+      const equipoId = params.get('EquipoID');
       if (equipoId !== null) {
         this.sprintService.getSprints().subscribe(sprints => {
 
           let filteredSprints : any = [];  
 
           sprints.forEach((sprint: any) => {
-            if (sprint.equipo.equipoId.toString() === equipoId) {
+            if (sprint.EquipoID.toString() === equipoId) {
               filteredSprints.push(sprint);
             }
           });

@@ -21,7 +21,6 @@ export class ProyectoGridComponent implements OnInit {
   public getProyectos(){
     this.proyectoService.getPuntosPorProyecto().subscribe((data: any) => {
       this.proyectos = data
-      console.log(data)
     });
   }
 }
