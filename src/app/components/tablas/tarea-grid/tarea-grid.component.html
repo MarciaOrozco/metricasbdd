@@ -11,14 +11,14 @@
         <th>Fecha fin</th>
       </tr>
       <tr *ngFor="let tarea of tareas">
-        <td>{{ tarea.tareaID }}</td>
-        <td>{{ tarea.sprint.numeroSprint }}</td>
-        <td>{{ tarea.empleado.nombre + " " + tarea.empleado.apellido }}</td>
-        <td>{{ tarea.puntos }}</td>
-        <td>{{ tarea.estado }}</td>
-        <td>{{ tarea.descripcion }}</td>
-        <td>{{ tarea.fechaInicio | date:'dd/MM/yyyy' }}</td>
-        <td>{{ tarea.fechaFin | date:'dd/MM/yyyy'}}</td>
+        <td>{{ tarea.TareaID }}</td>
+        <td>{{ tarea.NumeroSprint }}</td>
+        <td>{{ tarea.Nombre + " " + tarea.Apellido }}</td>
+        <td>{{ tarea.Puntos }}</td>
+        <td>{{ tarea.Estado }}</td>
+        <td>{{ tarea.Descripcion }}</td>
+        <td>{{ tarea.FechaInicio | date:'dd/MM/yyyy' }}</td>
+        <td>{{ tarea.FechaFin | date:'dd/MM/yyyy'}}</td>
       </tr>
     </table>
   </div>

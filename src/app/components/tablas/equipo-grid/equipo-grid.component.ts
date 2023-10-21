@@ -23,7 +23,6 @@ export class EquipoGridComponent implements OnInit {
       if(data){
        
         this.equipos = data;
-        console.log( this.equipos )
       }
     });
   }
