@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoService } from 'src/app/services/proyecto.service';
-import { TareaService } from 'src/app/services/tarea.service';
 
 
 @Component({

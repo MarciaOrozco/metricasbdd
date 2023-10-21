@@ -16,4 +16,8 @@ export class EquipoService {
   public getEquipos(): Observable<any> {
     return this.http.get<any>(this.hostUrl + `/equipos`);
   }
+
+  public getPuntosPorEquipo() {
+    return this.http.get(`${this.hostUrl}/puntosPorEquipo`);
+  }
 }
