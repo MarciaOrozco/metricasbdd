@@ -15,6 +15,9 @@ import { SprintGridComponent } from './components/tablas/sprint-grid/sprint-grid
 import { ProyectoGridComponent } from './components/tablas/proyecto-grid/proyecto-grid.component';
 import { EmpleadoGridComponent } from './components/tablas/empleado-grid/empleado-grid.component';
 import { TareaGridComponent } from './components/tablas/tarea-grid/tarea-grid.component';
+import { DetalleEquiposComponent } from './components/tablas/detalle-equipos/detalle-equipos.component';
+import { DetalleSprintComponent } from './components/tablas/detalle-sprint/detalle-sprint.component';
+import { DetalleTareasComponent } from './components/tablas/detalle-tareas/detalle-tareas.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { TareaGridComponent } from './components/tablas/tarea-grid/tarea-grid.co
     SprintGridComponent,
     ProyectoGridComponent,
     EmpleadoGridComponent,
-    TareaGridComponent
+    TareaGridComponent,
+    DetalleEquiposComponent,
+    DetalleSprintComponent,
+    DetalleTareasComponent
   ],
   imports: [
     BrowserModule,

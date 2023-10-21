@@ -14,6 +14,6 @@ export class EquipoService {
   constructor(private http: HttpClient) { }
 
   public getEquipos(): Observable<any> {
-    return this.http.get<any>(this.hostUrl + `/Equipo/GetEquipos/`);
+    return this.http.get<any>(this.hostUrl + `/equipos`);
   }
 }

@@ -14,6 +14,6 @@ export class TareaService {
   constructor(private http: HttpClient) { }
 
   public getTareas(): Observable<any> {
-    return this.http.get<any>(this.hostUrl + `/TareaCrontoller/GetTareas/`);
+    return this.http.get<any>(this.hostUrl + `/tareas`);
   }
 }

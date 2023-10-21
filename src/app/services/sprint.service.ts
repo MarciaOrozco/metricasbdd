@@ -14,6 +14,6 @@ export class SprintService {
   constructor(private http: HttpClient) { }
 
   public getSprints(): Observable<any> {
-    return this.http.get<any>(this.hostUrl + `/Sprint/GetSprints/`);
+    return this.http.get<any>(this.hostUrl + `/sprints`);
   }
 }

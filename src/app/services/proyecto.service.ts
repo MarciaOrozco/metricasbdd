@@ -14,6 +14,6 @@ export class ProyectoService {
   constructor(private http: HttpClient) { }
 
   public getProyectos(): Observable<any> {
-    return this.http.get<any>(this.hostUrl + `/Proyecto/GetProyectos/`);
+    return this.http.get<any>(this.hostUrl + `/proyectos`);
   }
 }

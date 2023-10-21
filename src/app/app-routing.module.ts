@@ -7,6 +7,9 @@ import { EquipoGridComponent } from './components/tablas/equipo-grid/equipo-grid
 import { SprintGridComponent } from './components/tablas/sprint-grid/sprint-grid.component';
 import { TareaGridComponent } from './components/tablas/tarea-grid/tarea-grid.component';
 import { EmpleadoGridComponent } from './components/tablas/empleado-grid/empleado-grid.component';
+import { DetalleEquiposComponent } from './components/tablas/detalle-equipos/detalle-equipos.component';
+import { DetalleSprintComponent } from './components/tablas/detalle-sprint/detalle-sprint.component';
+import { DetalleTareasComponent } from './components/tablas/detalle-tareas/detalle-tareas.component';
 
 const routes: Routes = [
  { path:'login',component: LoginComponent},
@@ -19,6 +22,18 @@ const routes: Routes = [
   path: 'equipos',
   component: EquipoGridComponent,
   canActivate: [AuthGuard],
+},
+{ path: 'equipo/:proyectoId',
+ component: DetalleEquiposComponent ,
+ canActivate: [AuthGuard],
+},
+{ path: 'sprint/:equipoId',
+ component: DetalleSprintComponent ,
+ canActivate: [AuthGuard],
+},
+{ path: 'tareas/:sprintId',
+ component: DetalleTareasComponent ,
+ canActivate: [AuthGuard],
 },
 {
   path: 'sprints',

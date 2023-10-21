@@ -14,6 +14,6 @@ export class EmpleadoService {
   constructor(private http: HttpClient) { }
 
   public getEmpleados(): Observable<any> {
-    return this.http.get<any>(this.hostUrl + `/Empleado/GetEmpleados/`);
+    return this.http.get<any>(this.hostUrl + `/empleados`);
   }
 }

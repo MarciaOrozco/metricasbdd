@@ -21,7 +21,9 @@ export class EquipoGridComponent implements OnInit {
   public getEquipos(){
     this.equiposService.getEquipos().subscribe(data => {
       if(data){
+       
         this.equipos = data;
+        console.log( this.equipos )
       }
     });
   }

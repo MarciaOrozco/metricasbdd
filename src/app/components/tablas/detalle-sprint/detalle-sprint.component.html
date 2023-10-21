@@ -1,0 +1,19 @@
+<div class="table-container">
+    <table>
+      <tr>
+        <th>Numero de sprint</th>
+        <th>Equipo</th>
+        <th>Fecha inicio</th>
+        <th>Fecha fin</th>
+        <th>Objetivos</th>
+      </tr>
+      <tr *ngFor="let sprint of sprints">
+        <td>{{ sprint.numeroSprint }}</td>
+        <td>{{ sprint.equipo.nombreEquipo }}</td>
+        <td>{{ sprint.fechaInicio | date:'dd/MM/yyyy' }}</td>
+        <td>{{ sprint.fechaFin | date:'dd/MM/yyyy'}}</td>
+        <td [routerLink]="['/tareas', sprint.sprintId]" >Cumple objetivo</td>
+      </tr>
+    </table>
+  </div>
+  
