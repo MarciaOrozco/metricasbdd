@@ -10,6 +10,7 @@ import { EmpleadoGridComponent } from './components/tablas/empleado-grid/emplead
 import { DetalleEquiposComponent } from './components/tablas/detalle-equipos/detalle-equipos.component';
 import { DetalleSprintComponent } from './components/tablas/detalle-sprint/detalle-sprint.component';
 import { DetalleTareasComponent } from './components/tablas/detalle-tareas/detalle-tareas.component';
+import { ObjetivosComponent } from './components/objetivos/objetivos.component';
 
 const routes: Routes = [
  { path:'login',component: LoginComponent},
@@ -48,6 +49,11 @@ const routes: Routes = [
 {
   path: 'empleados',
   component: EmpleadoGridComponent,
+  canActivate: [AuthGuard],
+},
+{
+  path: 'objetivos',
+  component: ObjetivosComponent,
   canActivate: [AuthGuard],
 },
 { path: '', redirectTo: '/login', pathMatch: 'full' },

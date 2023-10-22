@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ObjetivosService } from 'src/app/services/objetivos.service';
 import { SprintService } from 'src/app/services/sprint.service';
 
 @Component({
@@ -11,12 +12,15 @@ export class DetalleSprintComponent implements OnInit {
 
   public sprints: any[] = [];
   public helpersprints: any;
+  public objetivo: number = 0;
 
   constructor(private sprintService: SprintService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private objetivoService: ObjetivosService
     ) { }
 
   ngOnInit(): void {
+    this.objetivo = this.objetivoService.getobjetivosPorSprint()
     this.getSprint();
 
   }
@@ -60,6 +64,15 @@ export class DetalleSprintComponent implements OnInit {
         });
       }
     })
-    
+  }
+
+  public getPuntosClass(totalPuntos: number) {
+    if (totalPuntos === this.objetivo) {
+      return 'green-text';
+    } else if (totalPuntos > this.objetivo) {
+      return 'blue-text';
+    } else {
+      return 'red-text';
+    }
   }
 }

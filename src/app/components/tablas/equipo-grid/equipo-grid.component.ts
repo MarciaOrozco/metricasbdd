@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipoService } from 'src/app/services/equipo.service';
+import { ObjetivosService } from 'src/app/services/objetivos.service';
 
 @Component({
   selector: 'app-equipo-grid',
@@ -12,10 +13,12 @@ export class EquipoGridComponent implements OnInit {
 
   public equipos: any[] = [];
   public helperequipos: any;
+  public objetivo: number = 0;
 
-  constructor(private equiposService: EquipoService) { }
+  constructor(private equiposService: EquipoService, private objetivoService: ObjetivosService) { }
 
   ngOnInit(): void {
+    this.objetivo = this.objetivoService.getobjetivosPorEquipos()
     this.getEquipos();
   }
 
@@ -45,7 +48,16 @@ export class EquipoGridComponent implements OnInit {
           }
         });
       }
-    })
-    
+    }) 
+  }
+
+  public getPuntosClass(totalPuntos: number) {
+    if (totalPuntos === this.objetivo) {
+      return 'green-text';
+    } else if (totalPuntos> this.objetivo) {
+      return 'blue-text';
+    } else {
+      return 'red-text';
+    }
   }
 }

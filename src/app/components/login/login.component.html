@@ -9,7 +9,7 @@
    </div>
 
    <div *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)" class="alert alert-danger">
-    <div *ngIf="myForm.get('email')?.errors?.['required']">
+    <div *ngIf="myForm.get('email')?.errors?.['required']" class="red-text">
       El email es requerido.
     </div>
   </div>
@@ -20,7 +20,7 @@
      </div>
 
      <div *ngIf="myForm.get('password')?.invalid && (myForm.get('password')?.dirty || myForm.get('password')?.touched)" class="alert alert-danger">
-      <div *ngIf="myForm.get('password')?.errors?.['required']">
+      <div *ngIf="myForm.get('password')?.errors?.['required']" class="red-text">
         La contraseña es requerida.
       </div>
     </div>

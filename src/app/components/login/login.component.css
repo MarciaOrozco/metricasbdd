@@ -67,3 +67,8 @@
   padding-left: 10px;
   color: black;
 }
+
+.red-text{
+  color: red;
+  font-weight: 400;
+}

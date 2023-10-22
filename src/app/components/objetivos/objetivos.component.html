@@ -1,0 +1,51 @@
+<div class="container">
+    <form class="form" [formGroup]="myForm" (ngSubmit)="submit()">
+      <p class="form-title">Objetivos</p>
+        <div class="input-container">
+          <div class="input-title">Puntos por proyecto (243)</div>
+          <input formControlName="objetivoProyecto" type="number" class="form-control no-spinners" id="objetivoProyecto"
+              aria-describedby="objetivoProyecto"  [(ngModel)]=objetivoProyecto>
+          <span>
+          </span>
+      </div>
+      <div *ngIf="myForm.get('objetivoProyecto')?.invalid && (myForm.get('objetivoProyecto')?.dirty || myForm.get('objetivoProyecto')?.touched)" class="alert alert-danger">
+        <div *ngIf="myForm.get('objetivoProyecto')?.errors?.['required']">
+          El campo debe estar completo.
+        </div>
+      </div>
+
+      <div class="input-container">
+        <div class="input-title">Puntos por equipos (81)</div>
+        <input formControlName="objetivoEquipos" type="number" class="form-control no-spinners" id="objetivoEquipos"
+            aria-describedby="objetivoEquipos"  [(ngModel)]=objetivoEquipos>
+        <span>
+        </span>
+    </div>
+    <div *ngIf="myForm.get('objetivoEquipos')?.invalid && (myForm.get('objetivoEquipos')?.dirty || myForm.get('objetivoEquipos')?.touched)" class="alert alert-danger">
+      <div *ngIf="myForm.get('objetivoEquipos')?.errors?.['required']">
+        El campo debe estar completo.
+      </div>
+    </div>
+
+    <div class="input-container">
+      <div class="input-title">Puntos por sprint (27)</div>
+      <input formControlName="objetivoSprint" type="number" class="form-control no-spinners" id="objetivoSprint"
+          aria-describedby="objetivoSprint"  [(ngModel)]=objetivoSprint>
+      <span>
+      </span>
+  </div>
+  <div *ngIf="myForm.get('objetivoSprint')?.invalid && (myForm.get('objetivoSprint')?.dirty || myForm.get('objetivoSprint')?.touched)" class="alert alert-danger">
+    <div *ngIf="myForm.get('objetivoSprint')?.errors?.['required']">
+      El campo debe estar completo.
+    </div>
+  </div>
+        <button type="submit" class="submit">
+       Guardar
+     </button>
+     <div class="input-title" *ngIf="guardado">Guardado con exito</div>
+    </form>
+  </div>
+  
+  
+  
+  

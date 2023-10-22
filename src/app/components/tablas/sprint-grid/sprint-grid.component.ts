@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ObjetivosService } from 'src/app/services/objetivos.service';
 import { SprintService } from 'src/app/services/sprint.service';
 import { TareaService } from 'src/app/services/tarea.service';
 
@@ -12,11 +13,14 @@ export class SprintGridComponent implements OnInit {
 
   public sprints: any[] = [];
   public helpersprints: any;
+  public objetivo: number = 0;
 
-  constructor(private sprintsService: SprintService
+  constructor(private sprintsService: SprintService,
+    private objetivoService: ObjetivosService
     ) { }
 
     ngOnInit(): void {
+      this.objetivo = this.objetivoService.getobjetivosPorSprint()
       this.getSprints();
     }
   
@@ -46,6 +50,15 @@ export class SprintGridComponent implements OnInit {
         });
       }
     })
-    
+  }
+
+  public getPuntosClass(totalPuntos: number) {
+    if (totalPuntos === this.objetivo) {
+      return 'green-text';
+    } else if (totalPuntos > this.objetivo) {
+      return 'blue-text';
+    } else {
+      return 'red-text';
+    }
   }
 }

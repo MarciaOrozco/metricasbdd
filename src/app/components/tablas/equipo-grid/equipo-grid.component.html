@@ -8,7 +8,7 @@
       <tr *ngFor="let equipo of equipos">
         <td >{{ equipo.NombreEquipo }}</td>
         <td>{{ equipo.NombreProyecto }}</td>
-        <td [routerLink]="['/sprint', equipo.EquipoID]"> {{ equipo.TotalPuntos }} </td>
+        <td [routerLink]="['/sprint', equipo.EquipoID]" [ngClass]="getPuntosClass(equipo.TotalPuntos)" class="objetivos"> {{ equipo.TotalPuntos }} </td>
       </tr>
     </table>
   </div>

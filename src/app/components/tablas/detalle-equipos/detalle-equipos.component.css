@@ -34,3 +34,19 @@
     width: 500px; 
   }
   
+  .green-text {
+    color: green;
+  }
+  
+  .blue-text {
+    color: blue;
+  }
+  
+  .red-text {
+    color: red;
+  }
+
+  .objetivos{
+    cursor: pointer;
+    font-weight: 900;
+  }

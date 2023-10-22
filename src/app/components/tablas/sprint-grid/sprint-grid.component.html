@@ -12,7 +12,8 @@
         <td>{{ sprint.NombreEquipo }}</td>
         <td>{{ sprint.FechaInicio | date:'dd/MM/yyyy' }}</td>
         <td>{{ sprint.FechaFin | date:'dd/MM/yyyy'}}</td>
-        <td [routerLink]="['/tareas', sprint.SprintID]">{{sprint.TotalPuntos}} </td>
+        <td [routerLink]="['/tareas', sprint.SprintID]"  [ngClass]="getPuntosClass(sprint.TotalPuntos)" class="objetivos">
+          {{sprint.TotalPuntos}} </td>
       </tr>
     </table>
   </div>

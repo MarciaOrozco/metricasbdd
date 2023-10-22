@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EquipoService } from 'src/app/services/equipo.service';
+import { ObjetivosService } from 'src/app/services/objetivos.service';
 
 @Component({
   selector: 'app-detalle-equipos',
@@ -10,13 +11,16 @@ import { EquipoService } from 'src/app/services/equipo.service';
 export class DetalleEquiposComponent implements OnInit {
   public equipos: any[] = [];
   public helperequipos: any;
+  public objetivo: number = 0;
 
   constructor(
     private equiposService: EquipoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private objetivoService: ObjetivosService
   ) {}
 
   ngOnInit(): void {
+    this.objetivo = this.objetivoService.getobjetivosPorEquipos()
     this.getEquipo();
   }
 
@@ -56,5 +60,15 @@ export class DetalleEquiposComponent implements OnInit {
       }
     })
     
+  }
+
+  getPuntosClass(totalPuntos: number) {
+    if (totalPuntos === this.objetivo) {
+      return 'green-text';
+    } else if (totalPuntos > this.objetivo) {
+      return 'blue-text';
+    } else {
+      return 'red-text';
+    }
   }
 }
