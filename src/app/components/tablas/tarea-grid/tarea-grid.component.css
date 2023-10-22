@@ -1,8 +1,9 @@
 .table-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 69px;
+  flex-direction: column;
   }
 
   .table-container table th {
@@ -33,3 +34,43 @@
     border-collapse: collapse;
   }
   
+
+  .pagination-controls{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 16px;
+    height: 24px;
+    padding-top: 20px;
+   }
+  
+   .paginationBtn{
+    background-color: transparent;
+    border: none;
+    border-radius: 100%;
+    color: white;
+   }
+  
+   .paginationBtn:hover{
+    background-color: #6c79e0;
+    color: white;
+   }
+  
+  
+   .currentPageBtn{
+    border-radius: 100%;
+      height: fit-content;
+      background-color: transparent;
+      border: none;
+      color: black;
+   }
+  
+   .current-page {
+    background-color: #6c79e0;
+    color: #fff;
+  }
+  
+   .currentPageBtn:hover{
+    background-color: #6c79e0;
+    color: white;
+   }

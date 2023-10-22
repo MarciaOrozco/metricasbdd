@@ -9,6 +9,9 @@ import { TareaService } from 'src/app/services/tarea.service';
 export class TareaGridComponent implements OnInit {
 
   public tareas: any[] = [];
+  public currentPage: number = 1;
+  public itemsPerPage: number = 10;
+
 
   constructor(private tareasService: TareaService) { }
 
@@ -22,5 +25,28 @@ export class TareaGridComponent implements OnInit {
         this.tareas = data;
       }
     });
+  }
+
+  public calculateIndices() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return { startIndex, endIndex };
+  }
+
+  public getPages(): number[] {
+    const totalPages = Math.ceil(this.tareas.length / this.itemsPerPage);
+    return Array(totalPages).fill(0).map((_, index) => index + 1);
+  }
+
+  public pageClick(page: number){
+    this.currentPage = page;
+  }
+
+  public previousPageClick(){
+    this.currentPage = this.currentPage - 1
+  }
+
+  public nextPageClick(){
+    this.currentPage = this.currentPage + 1
   }
 }

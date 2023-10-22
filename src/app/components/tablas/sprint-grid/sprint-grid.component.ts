@@ -14,6 +14,8 @@ export class SprintGridComponent implements OnInit {
   public sprints: any[] = [];
   public helpersprints: any;
   public objetivo: number = 0;
+  public currentPage: number = 1;
+  public itemsPerPage: number = 10;
 
   constructor(private sprintsService: SprintService,
     private objetivoService: ObjetivosService
@@ -60,5 +62,29 @@ export class SprintGridComponent implements OnInit {
     } else {
       return 'red-text';
     }
+  }
+
+  
+  public calculateIndices() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return { startIndex, endIndex };
+  }
+
+  public getPages(): number[] {
+    const totalPages = Math.ceil(this.sprints.length / this.itemsPerPage);
+    return Array(totalPages).fill(0).map((_, index) => index + 1);
+  }
+
+  public pageClick(page: number){
+    this.currentPage = page;
+  }
+
+  public previousPageClick(){
+    this.currentPage = this.currentPage - 1
+  }
+
+  public nextPageClick(){
+    this.currentPage = this.currentPage + 1
   }
 }
